@@ -1,8 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './container/App.js';
-
 
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -10,6 +7,8 @@ import logger from 'redux-logger';
 import reducers from './reducers';
 import ReduxPromise from 'redux-promise';
 
+import './index.css';
+import Router from './Router';
 const store = createStore(
     reducers,
     applyMiddleware(logger, ReduxPromise)
@@ -17,7 +16,7 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Router />
     </Provider>
     , document.getElementById('root'));
 
